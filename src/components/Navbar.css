@@ -1,16 +1,19 @@
 .Navbar {
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #000000;
+    background: linear-gradient(180deg, #4d4d4d, #000);
     color:#ffffff;
     padding-top: 0rem;
     padding-bottom: 0rem;
 }
 
+.Navbar p {
+   margin: 0;
+}
+
 .brand-title {
     font-size: 2rem;
-    margin: 0.5rem;
     font-weight: 300;
     padding-left: 1.8rem;
 }
@@ -30,4 +33,9 @@
 }
 .navbar-links li:hover {
     background-color: #3a3a3a;
+}
+
+.left-nav {
+    display:flex;
+    align-items: center;
 }
