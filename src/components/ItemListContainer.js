@@ -1,7 +1,7 @@
 
-function ItemListContainer() {
+function ItemListContainer(props) {
   return (
-    <h2>Esto sera reemplazado por las cards.</h2>
+    <h2>{props.descripcion}</h2>
   );
 }
 

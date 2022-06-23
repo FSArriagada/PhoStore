@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Navbar/>
-      <ItemListContainer/>
+      <ItemListContainer descripcion="Esto sera reemplazado por las cards"/>
     </div>
   );
 }
