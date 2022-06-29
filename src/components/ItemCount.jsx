@@ -7,7 +7,6 @@ function ItemCount (props){
         if (num < props.stock){
             setNum(num + 1);
         }
-        
     }
     
     function restar(){
@@ -16,21 +15,19 @@ function ItemCount (props){
         }
     }
 
+    function agregar(){
+        console.log(`Agregaste ${num} productos`)
+    }
+
 
 return (
-    <div class="container">
-        <div class="card border-dark mb-4">
-            {/* <img src="${celular.img}" class="card-img-top" alt="..."/> */}
-            <div class="card-body">
-                <h5 class="card-title">Producto</h5>
-                <p class="card-text">$ Precio</p>
-                <button onClick={restar} class="btn btn-dark">-</button>
-                <span class="px-2">{num}</span>
-                <button onClick={sumar} class="btn btn-dark">+</button>
-                <button class="btn btn-success">Agregar al Carrito</button>
+       
+            <div>
+                <button onClick={restar} className="btn btn-dark">-</button>
+                <span className="px-2">{num}</span>
+                <button onClick={sumar} className="btn btn-dark">+</button>
+                <button className="btn btn-success" onClick={agregar}>Agregar al Carrito</button>
             </div>
-        </div>
-    </div>
     );
 
 }
