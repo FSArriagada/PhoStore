@@ -1,0 +1,33 @@
+.tarjeta {
+    width: 20.56rem;
+    height: 36rem;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    background: rgba(119, 119, 119, 0.301);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    box-shadow: rgb(0 0 0 / 25%) 0px 20px 40px;
+    backdrop-filter: blur(40px);
+    border-radius: 30px;
+    padding-bottom: 0.5rem;
+}
+
+.tarjeta-footer {
+    padding: 0;
+    background-color: transparent;
+    border-top: none;
+}
+
+.tarjeta-body{
+    padding: 0
+}
+
+.producto-imagen{
+    border-radius: 30px;
+}
+
+.fuente-blanca{
+    color: white;
+}

@@ -1,23 +1,27 @@
 import React , {useEffect, useState} from 'react'
 import productsDB from '../data/products';
 import ItemDetail from '../components/ItemDetail'
+import {useParams} from 'react-router-dom'
 
-function getProduct(){
+function getProduct(id){
   return new Promise ((resolve,reject) => {
     setTimeout(() => {
-      resolve (productsDB);
+      const productoEncontrado = productsDB.find((product) =>{
+        return parseInt(id) === product.id
+      })
+      resolve (productoEncontrado);
     }, 2000);
   });
 }
 
 function ItemListContainer() {
   const [product, setProduct] = useState([]);
-  
+  const {productid} = useParams();
   useEffect(() => {
-    getProduct().then(respuestaPromise => {
-      setProduct(respuestaPromise[0]);
+    getProduct(productid).then(respuestaPromise => {
+      setProduct(respuestaPromise);
     });
-  }, []);
+  }, [productid]);
   
   return (
     <div className="container px-5 py-8 mx-auto">
