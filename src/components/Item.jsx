@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 function Item({products}) {
     return (
         <div className="mb-5 tarjeta">
-        <img src={require(`../assets/img/${products.img}`)} className="card-img-top producto-imagen" alt="..."/> 
+            <img src={products.img} className="card-img-top producto-imagen" alt="..."/> 
         <div className="card-body tarjeta-body">
             <h5 className="card-title fuente-blanca">{products.descripcion}</h5>
             <p className="card-text fuente-blanca">${products.precio}</p>

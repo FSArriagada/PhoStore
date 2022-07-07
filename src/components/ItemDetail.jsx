@@ -6,7 +6,7 @@ import './Item.css';
 function ItemDetail ({product}) {
     return (
         <div className="mb-5 tarjeta">
-
+            <img src={product.img} className="card-img-top producto-imagen" alt="..."/> 
         <div className="card-body tarjeta-body">
             <h5 className="card-title fuente-blanca">{product.descripcion}</h5>
             <p className="card-text fuente-blanca">${product.precio}</p>
