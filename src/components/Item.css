@@ -12,6 +12,7 @@
     backdrop-filter: blur(40px);
     border-radius: 30px;
     padding-bottom: 0.5rem;
+    transition: all 300ms;
 }
 
 .tarjeta-footer {
@@ -30,4 +31,8 @@
 
 .fuente-blanca{
     color: white;
+}
+
+.tarjeta:hover {
+    transform: scale(1.05);
 }
