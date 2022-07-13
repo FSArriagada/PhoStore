@@ -3,16 +3,18 @@ import ItemCount from './ItemCount';
 import './Item.css';
 import {useState} from "react";
 import {Link} from "react-router-dom";
-
+import useCartContext from '../context/CartContext';
 
 
 
 function ItemDetail ({product}) {
     const [isInCart, setIsInCart] = useState(false)
+    const {addToCart} = useCartContext()
     
     function onAdd(num){
-        console.log(`Agregaste ${num} productos`)
+        addToCart(product,num)
         setIsInCart(true);
+        console.log("Agregado al cart", product,num)
     }
     
 

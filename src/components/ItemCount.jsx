@@ -22,7 +22,7 @@ return (
                 <button onClick={restar} className="btn btn-dark mx-2">-</button>
                 <span className="mx-2 align-self-center fs-5">{num}</span>
                 <button onClick={sumar} className="btn btn-dark mx-2">+</button>
-                <button onClick={() => props.onAdd(num)} className="btn btn-success mx-2"><i class="fa-solid fa-cart-plus"></i></button>
+                <button onClick={() => props.onAdd(num)} className="btn btn-success mx-2"><i className="fa-solid fa-cart-plus"></i></button>
             </div>
     );
 
