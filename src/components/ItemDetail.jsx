@@ -17,6 +17,9 @@ function ItemDetail ({product}) {
         console.log("Agregado al cart", product,num)
     }
     
+    if (!product) {
+        return <h3 className='fuente-blanca'>Cargando productos...</h3>
+    } else {
 
     return (
         <div className="mb-5 tarjeta">
@@ -30,7 +33,7 @@ function ItemDetail ({product}) {
             } 
         </div>
     </div>
-    )
+    )}
 }
 
 export default ItemDetail
