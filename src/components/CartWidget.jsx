@@ -7,7 +7,7 @@ function CartWidget() {
   return (
     <div>
         <img src={Carrito} className='cart' alt="Carrito"/>
-        <div class="text-white cantCarrito">{calcPriceCart()}</div>
+        <div className="text-white cantCarrito">{calcPriceCart()}</div>
     </div>
   );
 }

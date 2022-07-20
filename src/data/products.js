@@ -62,7 +62,7 @@ const products = [
         id: 8,
         categoria: 'Xiaomi',
         descripcion: "Xiaomi Redmi Note 12",
-        precio:" 66999",
+        precio: 66999,
         img: celular8      
     }, 
     {

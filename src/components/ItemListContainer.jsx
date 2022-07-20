@@ -1,37 +1,32 @@
 import React , {useEffect, useState} from 'react'
-import productsDB from '../data/products';
 import ItemList from '../components/ItemList'
 import { useParams } from 'react-router-dom';
+import { getAllProducts } from "../services/firestore"
 
-function getProducts(categoryid){
-  return new Promise ((resolve,reject) => {
-    setTimeout(() => {
-      if (categoryid !== undefined){
-        const categoryFiltered = productsDB.filter ((product) => {
-          return product.categoria === categoryid;
-        });
-        resolve (categoryFiltered);
-      } else {
-      resolve (productsDB);
-      }
-    }, 1000);
-  });
-}
 
-function ItemListContainer({props}) {
+
+function ItemListContainer() {
   const [productsState, setProducts] = useState([]);
   const { categoryid } = useParams();
+  const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
-    getProducts(categoryid).then(respuestaPromise => {
-      setProducts(respuestaPromise);
+    getAllProducts().then(respuestaPromise => {
+      setIsLoading(false);
+      if (categoryid === undefined){
+        setProducts(respuestaPromise)
+      }else {
+        let productFind = respuestaPromise.filter((respuesta) => respuesta.categoria === categoryid)
+        setProducts(productFind);
+      }
     });
   }, [categoryid]);
+  
   
   return (
     
     <div className="container px-5 py-8 mx-auto">
       <div className="d-flex flex-row m-2 flex-wrap justify-content-around">
-        <ItemList products={productsState}/>
+        {isLoading ? <h1>Cargando productos...</h1> : <ItemList products={productsState}/>}
       </div>
     </div>
     
