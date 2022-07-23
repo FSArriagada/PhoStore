@@ -51,10 +51,19 @@ export function CartContextProvider({children}) {
         });
         return total;
     }
+
+    const totalCart = () => {
+        let totalFinal = cart.reduce(
+            (acc, item) => acc + item.cant * item.precio, 0
+        )
+        return totalFinal;
+    }
+
+
     
     const contextFunction = () => console.log("Context ready");
     return(
-        <Provider value={ {contextFunction, cart, addToCart, removeFromCart, isInCart, clearCart,calcPriceCart} }>
+        <Provider value={ {contextFunction, cart, addToCart, removeFromCart, isInCart, clearCart,calcPriceCart,totalCart} }>
             {children}
         </Provider>
     )

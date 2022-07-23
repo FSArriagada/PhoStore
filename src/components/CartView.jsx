@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useCartContext from '../context/CartContext';
 
 function CartView() {
-    const { cart,clearCart,removeFromCart } = useCartContext();
+    const { cart,clearCart,removeFromCart, totalCart } = useCartContext();
     console.log("CART",cart)
     if (cart.length === 0){
         return <div className="text-center">
@@ -21,6 +21,7 @@ function CartView() {
                         <button onClick={() => removeFromCart(itemCart.id)} className="btn btn-danger btn-sm"><i className="fa-solid fa-trash-can"></i></button>
                     </div>
             })}
+            <h3>Total: ${totalCart()}</h3>
             <button onClick={clearCart} className="btn btn-danger btn-sm">Vaciar Carrito</button>
         </div>
     }
