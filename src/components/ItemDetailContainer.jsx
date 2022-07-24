@@ -4,7 +4,8 @@ import {useParams} from 'react-router-dom'
 import { getProduct } from '../services/firestore';
 
 
-function ItemListContainer() {
+function ItemDetailContainer() {
+  
   const [product, setProduct] = useState([]);
   const {productid} = useParams();
   useEffect(() => {
@@ -20,6 +21,7 @@ function ItemListContainer() {
       </div>
     </div>
   );
+  
 }
 
-export default ItemListContainer;
+export default ItemDetailContainer;

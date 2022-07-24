@@ -1,6 +1,5 @@
 import React from 'react';
 import Item from './Item';
-import ItemCount from './ItemCount';
 
 function ItemList({products}) {
     

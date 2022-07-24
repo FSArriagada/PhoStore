@@ -16,8 +16,7 @@ function ItemCount (props){
         }
     }
 
-return (
-       
+return (   
             <div className="d-flex justify-content-center">
                 <button onClick={restar} className="btn btn-dark mx-2">-</button>
                 <span className="mx-2 align-self-center fs-5">{num}</span>

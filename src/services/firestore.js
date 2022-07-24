@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { collection, getDocs, getFirestore, doc, getDoc} from "firebase/firestore"
+import { collection, getDocs, getFirestore, doc, getDoc, query, where} from "firebase/firestore"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,30 +22,36 @@ export async function getAllProducts(){
     //referimos a la colección
     const productsCollectionRef = collection(db, "products");
 
+    const productSnap = await getDocs(productsCollectionRef)
 
-    const docSnapshot = await getDocs(productsCollectionRef)
-
-    const dataProducts = docSnapshot.docs.map( (item) => {
-        const product = {
+     return productSnap.docs.map( (item) => {
+        return {
         ...item.data(),
         id: item.id
-    }
-    return product
-    });
-    return dataProducts;
-    
-    
+        }
+    });     
 }
+
 export async function getProduct(id) {
   const productsCollectionRef = collection(db, "products");
-  const docRef = doc(productsCollectionRef,id)
-  const docSnapshot = await getDoc(docRef)
-  return docSnapshot.data();
+  const productRef = doc(productsCollectionRef,id)
+  const productSnap = await getDoc(productRef)
+  return {...productSnap.data(), id: productSnap.id};
 
 }
 
-export async function getAllProductsByCategory(id){
+export async function getProductsByCategory(categoryId){
+  const docRef = collection(db,'products');
+  const query = query(docRef,where("categoria","==",categoryId))
+  const productSnap = await getDocs(query)
   
+  return productSnap.docs.map( (item) => {
+    return {
+    ...item.data(),
+    id: item.id
+    }
+}); 
 }
+
 
 export default db
