@@ -2,6 +2,7 @@ import React , {useEffect, useState} from 'react'
 import ItemList from '../components/ItemList'
 import { useParams } from 'react-router-dom';
 import { getAllProducts } from "../services/firestore"
+import './loader.css';
 
 
 
@@ -26,7 +27,7 @@ function ItemListContainer() {
     
     <div className="container px-5 py-8 mx-auto">
       <div className="d-flex flex-row m-2 flex-wrap justify-content-around">
-        {isLoading ? <h1>Cargando productos...</h1> : <ItemList products={productsState}/>}
+        {isLoading ? <span className="loader"></span> : <ItemList products={productsState}/>}
       </div>
     </div>
     
