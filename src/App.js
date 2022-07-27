@@ -7,6 +7,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { CartContextProvider } from './context/CartContext';
 import CartView from './components/CartView';
 
+
 function App() {
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
             </Routes>
         </BrowserRouter>
       </CartContextProvider>
+      
     </div>
     
   );
