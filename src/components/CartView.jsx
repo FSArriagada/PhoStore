@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import useCartContext from '../context/CartContext';
 import { createBuyOrder} from '../services/firestore';
@@ -27,10 +26,6 @@ function CartView() {
         total: totalCart()
     }
     createBuyOrder(buyOrder)
-    
-
-    
-    
 
 }
 
@@ -79,8 +74,11 @@ function CartView() {
                         </tr>
                     })}
                             <h3>Total: ${totalCart()}</h3>
-                            <button onClick={clearCart} className="btn btn-danger btn-sm">Vaciar Carrito</button>
-                            <button onClick={() => {Buy();clearCart()}} className="btn btn-success btn-sm">Confirmar Compra</button>
+                                <div className="d-flex justify-content-end">
+                                    <button onClick={clearCart} className="btn bg-danger bg-gradient btn-sm mx-1 fuente-blanca">Vaciar Carrito</button>
+                                    <button onClick={() => {Buy();clearCart()}} className="btn bg-success bg-gradient btn-sm mx-1 fuente-blanca">Confirmar Compra</button>
+                                    <button className="btn bg-success bg-gradient btn-sm mx-1"><Link to="/home" className="text-decoration-none fuente-blanca">Continuar Comprando</Link></button>
+                                </div>
                             </tbody>
                             </table>
                         </div>

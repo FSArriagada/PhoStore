@@ -43,8 +43,8 @@ export async function getProduct(id) {
 
 export async function getProductsByCategory(categoryId){
   const docRef = collection(db,'products');
-  const query = query(docRef,where("categoria","==",categoryId))
-  const productSnap = await getDocs(query)
+  const queryP = query(docRef,where("categoria","==",categoryId))
+  const productSnap = await getDocs(queryP)
   
   return productSnap.docs.map( (item) => {
     return {

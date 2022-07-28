@@ -1,7 +1,7 @@
 import React , {useEffect, useState} from 'react'
 import ItemList from '../components/ItemList'
 import { useParams } from 'react-router-dom';
-import { getAllProducts } from "../services/firestore"
+import { getAllProducts, getProductsByCategory } from "../services/firestore"
 import './loader.css';
 
 
@@ -16,9 +16,10 @@ function ItemListContainer() {
       if (categoryid === undefined){
         setProducts(respuestaPromise)
       }else {
-        let productFind = respuestaPromise.filter((respuesta) => respuesta.categoria === categoryid)
-        setProducts(productFind);
-      }
+        getProductsByCategory(categoryid).then(respuesta => {
+          setProducts(respuesta);
+        });
+      }   
     });
   }, [categoryid]);
   
@@ -27,7 +28,7 @@ function ItemListContainer() {
     
     <div className="container px-5 py-8 mx-auto">
       <div className="d-flex flex-row m-2 flex-wrap justify-content-around">
-        {isLoading ? <span className="loader"></span> : <ItemList products={productsState}/>}
+        {isLoading ? <span className="loader position-absolute top-50 start-50"></span> : <ItemList products={productsState}/>}
       </div>
     </div>
     
