@@ -8,7 +8,7 @@ function CartWidget() {
   return (
     <div>
         <Link to="/cart"><img src={Carrito} className='cart' alt="Carrito"/></Link>
-        <div className="text-white cantCarrito">{calcPriceCart()}</div>
+        <div className="text-white cantCarrito rounded-pill badge">{calcPriceCart()}</div>
     </div>
   );
 }

@@ -74,7 +74,7 @@ function CartView() {
                         </tr>
                     })}
                             <h3>Total: ${totalCart()}</h3>
-                                <div className="d-flex justify-content-end">
+                                <div className="d-flex justify-content-end mb-2">
                                     <button onClick={clearCart} className="btn bg-danger bg-gradient btn-sm mx-1 fuente-blanca">Vaciar Carrito</button>
                                     <button onClick={() => {Buy();clearCart()}} className="btn bg-success bg-gradient btn-sm mx-1 fuente-blanca">Confirmar Compra</button>
                                     <button className="btn bg-success bg-gradient btn-sm mx-1"><Link to="/home" className="text-decoration-none fuente-blanca">Continuar Comprando</Link></button>
