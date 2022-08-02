@@ -29,7 +29,7 @@ function Footer(){
         
                 <div className="col-md-4 col-sm-6 col-xs-12">
                 <ul className="address">
-                    <span>Contact</span>       
+                    <span>Contacto</span>       
                     <li>
                     <i className="fa fa-phone" aria-hidden="true"></i>   
                     </li>

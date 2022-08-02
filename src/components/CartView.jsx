@@ -30,7 +30,7 @@ function CartView() {
 }
 
     if (cart.length === 0){
-        return (<div className="fuente-blanca">
+        return (<div className="fuente-blanca min-vh-100">
                         <div className="text-center">
                             <h4 className="fuente-blanca">No hay items en el carrito</h4>
                             <Link to="/home"><button className="btn btn-success mx-2">Volver al catálogo</button></Link>
@@ -39,7 +39,7 @@ function CartView() {
                 </div> 
                 )
     } else {
-        return <div className="table-responsive">
+        return <div className="table-responsive min-vh-100">
                     <table className="table bg-secondary fuente-blanca">
                     <thead>
                         <tr>

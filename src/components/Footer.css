@@ -1,6 +1,7 @@
 footer {
     background: linear-gradient(180deg, #2e2e2e, #000);
-    padding: 30px 0px;
+    padding: 20px 0px;
+    margin-top: auto;
 }
 
 .logo {
