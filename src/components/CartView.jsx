@@ -1,33 +1,17 @@
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import useCartContext from '../context/CartContext';
-import { createBuyOrder} from '../services/firestore';
+import UserForm from "./UserForm";
+
 
 function CartView() {
     const { cart,clearCart,removeFromCart, totalCart } = useCartContext();
-  
-    function Buy(){   
-        const cantItems = cart.map((item) => ({
-            title: item.descripcion,
-            cant: item.cant,
-            price: item.precio,
-            id: item.id,
-            } 
-        ))
-        
-        const buyOrder = {
-        buyer: {
-            name: "Facundo Arriagada",
-            phone: "1122670052",
-            email: "Facu@coder.com",
-        },
-        items: cantItems,
-        date: new Date(),
-        total: totalCart()
-    }
-    createBuyOrder(buyOrder)
+    const [finalCompra,setFinalCompra] = useState(false);
 
-}
+    const finishHandler = () =>{
+        setFinalCompra(true)
+    }
 
     if (cart.length === 0){
         return (<div className="fuente-blanca min-vh-100">
@@ -73,14 +57,16 @@ function CartView() {
                         <td className="border-0 align-middle"><button onClick={() => removeFromCart(itemCart.id)} className="btn btn-danger btn-sm"><i className="fa-solid fa-trash-can"></i></button></td>
                         </tr>
                     })}
-                            <h3>Total: ${totalCart()}</h3>
+                        </tbody>
+                            </table>
+                            <h3 className="fuente-blanca">Total: ${totalCart()}</h3>
                                 <div className="d-flex justify-content-end mb-2">
                                     <button onClick={clearCart} className="btn bg-danger bg-gradient btn-sm mx-1 fuente-blanca">Vaciar Carrito</button>
-                                    <button onClick={() => {Buy();clearCart()}} className="btn bg-success bg-gradient btn-sm mx-1 fuente-blanca">Confirmar Compra</button>
-                                    <button className="btn bg-success bg-gradient btn-sm mx-1"><Link to="/home" className="text-decoration-none fuente-blanca">Continuar Comprando</Link></button>
+                                    <button onClick={finishHandler} className="btn bg-success bg-gradient btn-sm mx-1 fuente-blanca">Confirmar Compra</button>
+                                    <button className="btn bg-success bg-gradient btn-sm mx-1"><Link to="/home" className="text-decoration-none fuente-blanca">Continuar Comprando</Link></button> 
                                 </div>
-                            </tbody>
-                            </table>
+                            
+                            {finalCompra ? <UserForm/> : <></>}
                         </div>
                         
                 }
