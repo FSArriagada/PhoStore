@@ -1,7 +1,7 @@
 import React from 'react';
 import Item from './Item';
 
-function ItemList({products}) {
+function ItemList({products}) /* Función para mostrar la lista de productos. */ {
     
     return (
         <>

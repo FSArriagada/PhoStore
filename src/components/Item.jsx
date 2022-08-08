@@ -3,7 +3,7 @@ import './Item.css';
 import {Link} from 'react-router-dom';
 
 
-function Item({products}) {
+function Item({products}) /* muestra de producto */ {
     return (
         <div className="mb-5 tarjeta">
             <img src={products.img} className="card-img-top producto-imagen" alt="..."/> 

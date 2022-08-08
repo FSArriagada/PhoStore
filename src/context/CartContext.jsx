@@ -8,12 +8,12 @@ const {Provider} = CartContext;
 export function CartContextProvider({children}) {
     const [cart, setCart] = useState([]);
 
-    const addToCart = (item, cant) =>{
+    const addToCart = (item, cant) =>{ /*Función para agregar al carrito */
         if(isInCart(item.id)){
-            const newCart = cart.map (cartItem => {
+            const newCart = cart.map (cartItem => { /*mapeamos y verificamos si el item ya esta en el carrito */
                 if(cartItem.id === item.id){
                     const copyItem = {...cartItem}
-                    copyItem.cant += cant;
+                    copyItem.cant += cant; /*Si ya esta en el carrito lo sumamos */
                     return copyItem
                 } else { 
                     return cartItem
@@ -21,13 +21,13 @@ export function CartContextProvider({children}) {
 
             })
             setCart(newCart);
-        }else {
+        }else { /*En el caso de que no esté solo lo agregamos */
             const newItem = {...item,cant}
             setCart([...cart,newItem]);
         }
     }
 
-    const removeFromCart = (id) => {
+    const removeFromCart = (id) => { /*Función para remover un item del carrito por medio de filter y devuelvo lo que no coincide */
         const newCart = [...cart];
         const cartFilter = newCart.filter (item => {
             return item.id !== id;
@@ -44,7 +44,7 @@ export function CartContextProvider({children}) {
         return setCart([])
     }
     
-    const calcPriceCart = () =>{
+    const calcPriceCart = () =>{ /*Función para sumar los items que estan presentes en carrito */
         let total = 0;
         cart.forEach(itemCart => {
             total+=itemCart.cant  
@@ -52,7 +52,7 @@ export function CartContextProvider({children}) {
         return total;
     }
 
-    const totalCart = () => {
+    const totalCart = () => { /*Función para calcular el total de la compra */
         let totalFinal = cart.reduce(
             (acc, item) => acc + item.cant * item.precio, 0
         )

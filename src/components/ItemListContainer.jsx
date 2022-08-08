@@ -10,13 +10,13 @@ function ItemListContainer() {
   const [productsState, setProducts] = useState([]);
   const { categoryid } = useParams();
   const [isLoading, setIsLoading] = useState(true)
-  useEffect(() => {
+  useEffect(() => { /*Obtener del firebase los datos de los productos */
     getAllProducts().then(respuestaPromise => {
       setIsLoading(false);
       if (categoryid === undefined){
         setProducts(respuestaPromise)
       }else {
-        getProductsByCategory(categoryid).then(respuesta => {
+        getProductsByCategory(categoryid).then(respuesta => { /* Filtración por categoría */
           setProducts(respuesta);
         });
       }   

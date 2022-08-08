@@ -4,7 +4,7 @@ import useCartContext from '../context/CartContext';
 import { useState } from 'react';
 
 
-function UserForm() {
+function UserForm() /*Formulario para enviar datos a la db */{
 
     const [newName, setNewName] = useState("")
     const [newEmail, setNewEmail] = useState("")

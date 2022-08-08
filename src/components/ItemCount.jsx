@@ -5,13 +5,13 @@ import 'react-toastify/dist/ReactToastify.css';
 function ItemCount (props){
     const [num, setNum] = useState(props.initial);
     
-    function sumar(){
+    function sumar(){ /* Suma a la cantidad de productos a comprar*/
         if (num < props.stock){
             setNum(num + 1);
         }
     }
     
-    function restar(){
+    function restar(){ /* Resta a la cantidad de productos a comprar*/
         if (num > props.initial){
             setNum(num - 1);
         }

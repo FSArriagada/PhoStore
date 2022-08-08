@@ -5,7 +5,7 @@ import useCartContext from '../context/CartContext';
 import UserForm from "./UserForm";
 
 
-function CartView() {
+function CartView() { /*  VISTA DEL CARRITO */
     const { cart,clearCart,removeFromCart, totalCart } = useCartContext();
     const [finalCompra,setFinalCompra] = useState(false);
 

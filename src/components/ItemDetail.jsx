@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 
 
-function ItemDetail ({product}) {
+function ItemDetail ({product}) /* Detalle de producto a comprar*/ {
     const [isInCart, setIsInCart] = useState(false)
     const {addToCart} = useCartContext()
     

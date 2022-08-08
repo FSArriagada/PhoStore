@@ -3,7 +3,7 @@ import Carrito from '../assets/Carrito.svg';
 import useCartContext from '../context/CartContext';
 import {Link} from 'react-router-dom'
 
-function CartWidget() {
+function CartWidget() /* Carrito de la navbar */ {
   const { calcPriceCart } = useCartContext();
   return (
     <div>
