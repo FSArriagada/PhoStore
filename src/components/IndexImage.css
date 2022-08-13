@@ -1,0 +1,24 @@
+.container-image{
+    height: 75vh;
+    background-image: url("https://res.cloudinary.com/dsols4pzx/image/upload/v1660422224/the-average-tech-guy-DsmDqiYduaU-unsplash_zyytbo.jpg");
+    background-color: rgb(50,50,50);
+    background-blend-mode: soft-light;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items:flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.titulo{
+    animation: entrada 1.5s 1;
+}
+
+@keyframes entrada{
+    0%{transform: translateY(-100px); opacity: 0%;}
+    100%{transform: translateY(0);}
+}
+

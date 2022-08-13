@@ -3,6 +3,7 @@ import ItemList from '../components/ItemList'
 import { useParams } from 'react-router-dom';
 import { getAllProducts, getProductsByCategory } from "../services/firestore"
 import './loader.css';
+import IndexImage from './IndexImage';
 
 
 
@@ -25,10 +26,12 @@ function ItemListContainer() {
   
   
   return (
-    
-    <div className="container px-5 py-8 mx-auto min-vh-100">
-      <div className="d-flex flex-row m-2 flex-wrap justify-content-around">
-        {isLoading ? <span className="loader position-absolute top-50 start-50"></span> : <ItemList products={productsState}/>}
+    <div>
+      <IndexImage/>
+      <div className="container px-5 py-8 mx-auto min-vh-100">
+        <div className="d-flex flex-row m-2 flex-wrap justify-content-around">
+          {isLoading ? <span className="loader position-absolute start-50 mt-3"></span> : <ItemList products={productsState}/>}
+        </div>
       </div>
     </div>
     
